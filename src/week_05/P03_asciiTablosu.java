@@ -1,3 +1,5 @@
+package week_05;
+
 public class P03_asciiTablosu {
     public static void main(String[] args) {
 
