@@ -23,10 +23,13 @@ public class P07_tekrarsızString {
                 tekrarsizMetin += islenecekMetin.substring(i, i + 1);
 
 
-                System.out.print(tekrarsizMetin);
+
             }
         }
 
-
+        System.out.println(" ");
+        System.out.println("metin :" + metin);
+        System.out.println("tekrarsız metin : "+ tekrarsizMetin);
+        System.out.println("tekrarsiz harf sayısı :" + tekrarsizMetin.length());
     }
 }
