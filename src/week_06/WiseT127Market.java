@@ -121,15 +121,81 @@ ilk programa girildiginde bizi bir menu karsilasin bu secenekler
         }
 
 
-
-
-
-
-
-
     }
     private static void sarkuteri() {
         System.out.println("----------Sarküteri Reyonuna Hoşgeldiniz------------");
+        System.out.println("Lütfen almak istediğiniz ürünün ürün kodunu (UK) giriniz!");
+        System.out.println("Kıyma Fiyatı : 250₺ UK: 21 \nPeynir Fiyatı: 400₺ UK: 22 \nSüt Fiyatı: 120₺ UK: 23" +
+                " \nYumurta Fiyatı:90₺ UK: 24 \nYoğurt Fiyatı: 150₺ UK: 25 ");
+
+        while (!ekUrun){
+            urunKodu= scan.nextInt();
+            if (urunKodu>=21 && urunKodu<=25){
+                System.out.println("Ne kadar alacaksınız? ( kg / lt / koli )");
+                urunMiktari = scan.nextInt();
+                switch (urunKodu) {
+                    case 21:
+                        urunAdi = "Kıyma";
+                        urunFiyati = 250;
+                        System.out.println(urunMiktari + " kg/lt/koli " + urunAdi + " fiyatı : " + urunMiktari * urunFiyati + " ₺ dir.");
+                        break;
+                    case 22:
+                        urunAdi = "Peynir";
+                        urunFiyati = 400;
+                        System.out.println(urunMiktari + " kg/lt/koli " + urunAdi + " fiyatı : " + urunMiktari * urunFiyati + " ₺ dir.");
+                        break;
+                    case 23:
+                        urunAdi = "Süt";
+                        urunFiyati = 120;
+                        System.out.println(urunMiktari + " kg/lt/koli " + urunAdi + " fiyatı : " + urunMiktari * urunFiyati + " ₺ dir.");
+                        break;
+                    case 24:
+                        urunAdi = "Yumurta";
+                        urunFiyati = 90;
+                        System.out.println(urunMiktari + " kg/lt/koli " + urunAdi + " fiyatı : " + urunMiktari * urunFiyati + " ₺ dir.");
+                        break;
+                    case 25:
+                        urunAdi = "Yoğurt";
+                        urunFiyati = 150;
+                        System.out.println(urunMiktari + " kg/lt/koli " + urunAdi + " fiyatı : " + urunMiktari * urunFiyati + " ₺ dir.");
+                        break;
+
+                }
+                   urunFiyati=urunMiktari*urunFiyati;
+                   toplam+= urunFiyati;
+                System.out.println("Oluşan Sepet Tutarı : "+toplam);
+
+                sepet+= urunAdi + " fiyatı: "+urunFiyati+" ₺";
+                System.out.println("Başka bir ürün almak isterseniz lütfen kodunu giriniz.\nAna menüye dönmek için 0'a basınız.");
+
+            }else if (urunKodu==0){
+                girisEkrani();
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
     private static void market() {
         System.out.println("----------Market Reyonuna Hoşgeldiniz------------");
@@ -141,6 +207,7 @@ ilk programa girildiginde bizi bir menu karsilasin bu secenekler
 
     private static void cikis() {
         System.out.println("----------Çıkış Yapılıyor------------");
+        System.exit(0);
     }
 
 
