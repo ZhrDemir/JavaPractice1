@@ -23,13 +23,13 @@ public class P03_arrays {
 
     private static int [] ikiArtir(int[] arr) {
 
-        int [] yeniarr=new int[arr.length];
+
 
         for (int i = 0; i < arr.length; i++) {
-             yeniarr [i] = arr [i] + 2;
+             arr[i]= arr [i] + 2;
 
         }
-        return yeniarr;
+        return arr;
     }
 
 }
