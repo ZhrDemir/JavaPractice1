@@ -1,6 +1,7 @@
 package week_06;
 
 
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class WiseT127Market {
@@ -108,7 +109,7 @@ ilk programa girildiginde bizi bir menu karsilasin bu secenekler
                 toplam = urunFiyati*urunMiktari;
                 System.out.println(urunMiktari + "kg "+ urunAdi + " toplam fiyatı: "+ toplam + "₺ dir.");
 
-                sepet += urunAdi + " " +urunMiktari+ "kg = "+ toplam + "₺ ";
+                sepet += urunAdi + " " +urunMiktari+ "kg = "+ toplam + "₺\n";
                 System.out.println("Toplam sepet tutarı : "+ sepet);
                 System.out.println("Başka bir ürün eklemek isterseniz ürün kodunu girin.\n Ana Menüye dönmek için 0 tuşuna basınız.");
             } else if (urunKodu == 0) {
@@ -165,8 +166,55 @@ ilk programa girildiginde bizi bir menu karsilasin bu secenekler
                    toplam+= urunFiyati;
                 System.out.println("Oluşan Sepet Tutarı : "+toplam);
 
-                sepet+= urunAdi + " fiyatı: "+urunFiyati+" ₺";
+                sepet+= urunAdi +" " + urunMiktari+" kg/adet/lt =" +urunFiyati+" ₺\n";
                 System.out.println("Başka bir ürün almak isterseniz lütfen kodunu giriniz.\nAna menüye dönmek için 0'a basınız.");
+
+            }else if (urunKodu==0){
+                girisEkrani();
+            }
+        }
+
+
+    }
+    private static void market() {
+        System.out.println("----------Market Reyonuna Hoşgeldiniz------------");
+        System.out.println("Lütfen almak istediğiniz ürünün kodunu giriniz.");
+        System.out.println("31 - Nutella Fiyatı : 109₺\n32 - Pirinç Fiyatı : 40₺\n33 - Makarna Fiyatı\n34 - Şampuan Fiyatı : 60₺ ");
+
+        while (!ekUrun){
+            urunKodu=scan.nextInt();
+            if (urunKodu>=31 && urunKodu<=34){
+                System.out.println("Ne kadar alacaksınız?(kg/adet/lt)");
+                urunMiktari = scan.nextInt();
+
+                switch (urunKodu){
+                    case 31:
+                        urunAdi="Nutella";
+                        urunFiyati = 109;
+                        System.out.println(urunMiktari + " (adet/kg/lt) " + urunAdi+" : " + urunMiktari*urunFiyati + " TL dir.");
+                        break;
+                    case 32:
+                        urunAdi="Pirinç";
+                        urunFiyati=40;
+                        System.out.println(urunMiktari + " (adet/kg/lt) " + urunAdi+" : " + urunMiktari*urunFiyati + " TL dir.");
+                    case 33:
+                        urunAdi="Makarna";
+                        urunFiyati = 34;
+                        System.out.println(urunMiktari + " (adet/kg/lt) " + urunAdi+" : " + urunMiktari*urunFiyati + " TL dir.");
+                        break;
+
+                    case 34:
+                        urunAdi="Şampuan";
+                        urunFiyati = 60;
+                        System.out.println(urunMiktari + " (adet/kg/lt) " + urunAdi+" : " + urunMiktari*urunFiyati + " TL dir.");
+                        break;
+                }
+
+                urunFiyati = urunMiktari*urunFiyati;
+                toplam +=urunFiyati;
+                System.out.println("Oluşan sepet tutarı : " + toplam);
+                sepet+= urunAdi + " " + urunMiktari+" kg/adet/lt = " +urunFiyati+" ₺\n";
+                System.out.println("Başka bir ürün almak isterseniz ürün kodunu giriniz.\nAna menüye dönmek için 0 tuşuna basınız");
 
             }else if (urunKodu==0){
                 girisEkrani();
@@ -181,28 +229,38 @@ ilk programa girildiginde bizi bir menu karsilasin bu secenekler
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    }
-    private static void market() {
-        System.out.println("----------Market Reyonuna Hoşgeldiniz------------");
     }
 
     private static void fisYazdir() {
-        System.out.println("----------Fiş Yazdırılıyor------------");
+        System.out.println("----------WİSE T127 Market------------");
+        System.out.println("Alışverişinizde bizi tercih ettiğiniz için \nTeşekkür ederiz.");
+        System.out.println(" ");
+        System.out.println(sepet);
+        System.out.println(" ");
+        System.out.println("Toplam alışveriş tutarı : " +toplam);
+        System.out.println(" ");
+        System.out.println("Odemeyi giriniz");
+
+        int odeme =scan.nextInt();
+        if (odeme<toplam){
+            System.out.println("Ödeme yetersiz.");
+
+        }else {
+            System.out.println("Ödenen Tutar : " +odeme+"\nPara Üstü : " + (odeme-toplam));
+
+        }
+        System.out.println(" ");
+        LocalDateTime saat = LocalDateTime.now();
+        System.out.println(saat);
+        System.out.println("İYİ GÜNLER DİLERİZ ---TEKRAR BEKLERİZ ");
+        cikis();
+
+
+
+
+
+
+
     }
 
     private static void cikis() {
